@@ -16,10 +16,10 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       />
-      <head>
+      <Head>
         <link rel="icon" href="/favicon.jpeg" />
-        {/* <title>Essos Dragon Eggs</title> */}
-      </head>
+        <title>Essos Dragon Eggs</title>
+      </Head>
       <Component {...pageProps} />
     </>
   );
