@@ -1,13 +1,13 @@
 import head from 'next/head';
 import Layout from '../components/Layout';
 
-export default function Braavos() {
+export default function About() {
   return (
     <Layout>
       <head>
-        <title>Braavosi Dragon Eggs</title>
+        <title>About</title>
       </head>
-      <div>Dragon Eggs from the Northern Shore</div>
+      <div>Here is a massive picture of a Dragon Egg.</div>
       {/* image with normal image tag from public directory */}
       <img src="/titleEgg.jpeg" alt="golden dragon egg" />
     </Layout>

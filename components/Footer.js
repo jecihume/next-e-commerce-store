@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 const navStyles = css`
   display: flex;
-  gap: 5px;
+  gap: 15px;
   background-color: lightseagreen;
   color: darkmagenta;
 `;

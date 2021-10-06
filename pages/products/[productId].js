@@ -1,9 +1,11 @@
+import { captureRejectionSymbol } from 'events';
 import head from 'next/head';
 import { useRouter } from 'next/router';
 import { userInfo } from 'os';
 import Layout from '../../components/Layout';
 
-export default function product(props) {
+const product = (props) => {
+  // or like this: export default function product(props) {
   // this is only used, when I am grabbing information from the front end through the URl:
   // const router = useRouter();
   // const { product } = router.query;
@@ -12,16 +14,33 @@ export default function product(props) {
     console.log(window.localStorage);
   }
 
+  const clickHandler = () => {
+    console.log('Yes, I want it!');
+  };
+  {
+    /* then tell the  button to execute the function click handler whenever the button is clicked */
+  }
+
   return (
     <Layout>
-      <head>
-        <title>Product Detail: {props.dragonEgg.color}</title>
-      </head>
-      <div>Product Detail: {props.dragonEgg.area}</div>
-      <div>The color of this Dragon will be {props.dragonEgg.color}.</div>
+      <div>
+        <head>
+          <title>Product Detail: {props.dragonEgg.color}</title>
+        </head>
+        <h3>Product Detail: {props.dragonEgg.area}</h3>
+        <div>
+          <img src={props.dragonEgg.img} alt={props.dragonEgg.id}></img>
+        </div>
+        <h4>The color of this Dragon will be {props.dragonEgg.color}.</h4>
+        <button onClick={clickHandler}>
+          Buy now for {props.dragonEgg.price.amount}{' '}
+          {props.dragonEgg.price.currency}
+        </button>
+      </div>
     </Layout>
   );
-}
+};
+
 export async function getServerSideProps(context) {
   const { products } = await import('../../util/database');
 
@@ -29,6 +48,7 @@ export async function getServerSideProps(context) {
   const idFromUrl = context.query.productId;
 
   // products is an array of products, egg represents one object
+  // find receives a function with a comparison, whenever comparison is true, then the element is returned
   const dragonEgg = products.find((egg) => {
     return idFromUrl === egg.id;
   });
@@ -40,3 +60,5 @@ export async function getServerSideProps(context) {
     props: { dragonEgg },
   };
 }
+
+export default product;

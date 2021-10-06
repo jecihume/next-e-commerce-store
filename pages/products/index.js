@@ -25,7 +25,7 @@ export default function Product(props) {
   );
 }
 export async function getServerSideProps() {
-  const { products } = await import('../../util/database');
+  const { products } = await import('../../util/database.js');
 
   // return  an object with the property props that's coming from the backend to the frontend
   // props : name and value
