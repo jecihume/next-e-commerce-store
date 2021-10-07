@@ -9,6 +9,8 @@ const reset = css`
   *,
   *::before,
   *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
 
@@ -20,33 +22,14 @@ const reset = css`
     height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ol,
-  ul {
-    margin: 10;
-    padding: 0;
-    font-weight: normal;
-  }
-  ol,
-  ul {
-    list-style: none;
-  }
   img {
     max-width: 100%;
     height: auto;
   }
 `;
-
-const mainColor = 'black';
-const secondaryColor = '#15c6d3';
 
 export const myGlobalStyles = css`
   ${reset}
@@ -74,7 +57,7 @@ export const myGlobalStyles = css`
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
     font-size: 2em;
-    color: ${mainColor};
+    color: ;
   }
   header {
     display: flex;
@@ -86,7 +69,7 @@ export const myGlobalStyles = css`
       height: auto;
       align-items: center;
       justify-content: center;
-
+      flex-direction: column;
       margin-top: 20px;
       padding: 40px;
     }
@@ -198,5 +181,46 @@ export const myGlobalStyles = css`
       text-align: center;
     }
     background-color: #f9caca;
+  }
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .links {
+    display: flex;
+  }
+  .navlink {
+    list-style: none;
+    margin: 0 0.75rem;
+    text-transform: uppercase;
+  }
+  .navlink a {
+    text-decoration: none;
+    color: black;
+  }
+  .navlink a:hover {
+    color: #f9826c;
+  }
+  .img {
+    width: 10px;
+    height: 2vh;
+    border-radius: 50%50%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
   }
 `;

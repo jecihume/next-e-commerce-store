@@ -29,13 +29,14 @@ const product = (props) => {
         </head>
         <h3>Product Detail: {props.dragonEgg.area}</h3>
         <div>
-          <img src={props.dragonEgg.img} alt={props.dragonEgg.id}></img>
+          <img src={props.dragonEgg.img} alt={props.dragonEgg.area} />
         </div>
         <h4>The color of this Dragon will be {props.dragonEgg.color}.</h4>
-        <button onClick={clickHandler}>
+        <button onClick={clickHandler} className="button">
           Buy now for {props.dragonEgg.price.amount}{' '}
           {props.dragonEgg.price.currency}
         </button>
+        <p>{product.chosen ? 'added to shopping cart' : ''}</p>
       </div>
     </Layout>
   );

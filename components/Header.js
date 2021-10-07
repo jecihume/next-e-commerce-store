@@ -14,19 +14,19 @@ export default function Header() {
   return (
     <header>
       <nav css={navStyles}>
-        <div>
-          <Image src={titleEgg} alt="luminescent dragon egg" />
-        </div>
-        <Link href="/">
+        <Image src={titleEgg} alt="luminescent dragon egg" className="img" />
+
+        <h2 className="logo">The Most Precious Dragon Eggs from Essos!</h2>
+        <Link href="/" className="navLink">
           <a>Home</a>
         </Link>
-        <Link href="/products">
+        <Link href="/products" className="navLink">
           <a>Products</a>
         </Link>
-        <Link href="/about">
+        <Link href="/about" className="navLink">
           <a>About</a>
         </Link>
-        <Link href="/contact">
+        <Link href="/contact" className="navLink">
           <a>Contact</a>
         </Link>
       </nav>

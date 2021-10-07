@@ -7,10 +7,10 @@ export default function Contact() {
       <head>
         <title>Contact</title>
       </head>
-      <div>
-        Please come to my office in Braavos Monday through Friday dawn til dusk.
-        Alternatively, please send a raven.
-      </div>
+      <p>
+        Come to my office in Braavos Monday through Friday dawn til dusk.
+        Alternatively, please send a raven!
+      </p>
     </Layout>
   );
 }

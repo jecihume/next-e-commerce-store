@@ -7,8 +7,10 @@ export default function About() {
       <head>
         <title>About</title>
       </head>
-      <div>Here is a massive picture of a Dragon Egg.</div>
-      {/* image with normal image tag from public directory */}
+      <h2>
+        A picture taken just before the hatching of a golden Qohori Dragon.
+      </h2>
+
       <img src="/titleEgg.jpeg" alt="golden dragon egg" />
     </Layout>
   );

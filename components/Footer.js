@@ -8,5 +8,9 @@ const navStyles = css`
 `;
 
 export default function Footer() {
-  return <footer css={navStyles}>EssosDragonEggs.com</footer>;
+  return (
+    <footer css={navStyles}>
+      PreciousEssosDragonEggs.com {new Date().getFullYear()}
+    </footer>
+  );
 }
