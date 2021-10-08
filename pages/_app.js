@@ -4,11 +4,11 @@ import Footer from '../components/Footer.js';
 import { Header } from '../components/Header.js';
 import { myGlobalStyles } from '../styles/globalStyles.js';
 
+// global styles is applied to everything underneath
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Global styles={myGlobalStyles} />
-
       <Head>
         <link rel="icon" href="/favicon.jpeg" />
         <title>Essos Dragon Eggs</title>

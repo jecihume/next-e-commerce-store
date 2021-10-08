@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       <nav css={navStyles}>
-        <Image src={titleEgg} alt="luminescent dragon egg" className="img" />
+        <Image src={titleEgg} alt="luminescent dragon egg" className="icon" />
 
         <h2 className="logo">The Most Precious Dragon Eggs from Essos!</h2>
         <Link href="/" className="navLink">

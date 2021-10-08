@@ -3,13 +3,13 @@ import Layout from '../components/Layout';
 
 export default function Home() {
   return (
-    <Layout aTitle="this is a test">
+    <Layout aTitle="Where do our Dragon Eggs come from?">
       <head>
         <title>Essos Dragon Eggs Home</title>
       </head>
-      <div>Braavos: Dragon Eggs from the Northern Shore</div>
-      <div>Lys: Dragon Eggs from the Southern Isles</div>
-      <div>Qohor: Dragon Eggs from the Eastern Mountains</div>
+      <h2 className="h2">Braavos: Dragon Eggs from the Northern Shore</h2>
+      <h2 className="h2">Lys: Dragon Eggs from the Southern Isles</h2>
+      <h2 className="h2">Qohor: Dragon Eggs from the Eastern Mountains</h2>
     </Layout>
   );
 }

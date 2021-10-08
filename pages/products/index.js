@@ -43,12 +43,12 @@ export default function Product(props) {
     </Layout>
   );
 }
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const { products } = await import('../../util/database.js');
 
   // return  an object with the property props that's coming from the backend to the frontend
   // props : name and value
-  console.log(products);
+  console.log(context.req.cookies.shoppingCart);
   return {
     props: { productList: products },
   };

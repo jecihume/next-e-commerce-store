@@ -1,7 +1,9 @@
 import { captureRejectionSymbol } from 'events';
+import Cookies from 'js-cookies';
 import head from 'next/head';
 import { useRouter } from 'next/router';
 import { userInfo } from 'os';
+import { useState } from 'react';
 import Layout from '../../components/Layout';
 
 const product = (props) => {
@@ -15,8 +17,14 @@ const product = (props) => {
   }
 
   const clickHandler = () => {
-    console.log('Yes, I want it!');
+    console.log(props.dragonEgg.id);
+    // what are the next steps?
+    // I want the id of my object to show in the array of cart in the cookie
+    // how do I get there?
+    // I need to get to the ID
+    // now I need to get the id into the object
   };
+
   {
     /* then tell the  button to execute the function click handler whenever the button is clicked */
   }
@@ -29,9 +37,15 @@ const product = (props) => {
         </head>
         <h3>Product Detail: {props.dragonEgg.area}</h3>
         <div>
-          <img src={props.dragonEgg.img} alt={props.dragonEgg.area} />
+          <img
+            src={props.dragonEgg.img}
+            alt={props.dragonEgg.area}
+            className="img"
+          />
         </div>
-        <h4>The color of this Dragon will be {props.dragonEgg.color}.</h4>
+        <h4 className="h4">
+          The color of this Dragon will be {props.dragonEgg.color}.
+        </h4>
         <button onClick={clickHandler} className="button">
           Buy now for {props.dragonEgg.price.amount}{' '}
           {props.dragonEgg.price.currency}
