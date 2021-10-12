@@ -15,11 +15,11 @@ const reset = css`
   }
 
   body {
-    background: #281f62;
+    background: blanchedalmond;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width: 100vh;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -47,33 +47,37 @@ export const myGlobalStyles = css`
     }
   }
   .h2 {
-    color: darkorchid;
+    color: darkmagenta;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
-  .h4 {
-    color: magenta;
+  /* .h4 {
+    color: greenyellow;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+  } */
   .wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  .navbar {
+  .link {
     display: flex;
     justify-content: space-between;
+    color: darkmagenta;
     align-items: center;
     padding: 2rem;
     height: 10px;
   }
-  .links {
+
+  .title {
     display: flex;
-  }
-  .icon {
-    border-radius: 50%;
+    justify-content: space-between;
+    color: darkmagenta;
+    align-items: center;
+    padding: 2rem;
+    height: 10px;
   }
   .img {
     width: 100vh;

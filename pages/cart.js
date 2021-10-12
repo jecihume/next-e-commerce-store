@@ -1,6 +1,6 @@
 import Head from 'next/head';
-// import { getServerSideProps } from 'next';
 import Layout from '../components/Layout';
+import { myGlobalStyles } from '../styles/globalStyles';
 import { getCookie, setCookie } from '../util/cookie';
 
 export default function Cart() {
@@ -9,9 +9,9 @@ export default function Cart() {
   return (
     <Layout>
       <Head>
-        <title>Shopping Cart</title>
+        <title className="title">Shopping Cart</title>
       </Head>
-      <h2>These are the Eggs of your Choosing.</h2>
+      <h2 className="h2">These are the Eggs of your Choosing.</h2>
     </Layout>
   );
 }

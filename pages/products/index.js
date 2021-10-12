@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import Layout from '../../components/Layout';
+import { myGlobalStyles } from '../../styles/globalStyles';
 import { getLocalStorage, setLocalStorage } from '../../util/localStorage';
 
 export default function Product(props) {
@@ -24,7 +25,7 @@ export default function Product(props) {
         <title>Product Overview</title>
       </Head>
 
-      <h2>Product List</h2>
+      <h2 className="h2">Product List</h2>
       <ul>
         {props.productList.map((product) => {
           return (

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import { myGlobalStyles } from '../styles/globalStyles';
 
 export default function Contact() {
   return (
@@ -7,10 +8,10 @@ export default function Contact() {
       <Head>
         <title>Contact</title>
       </Head>
-      <p>
+      <h2 className="h2">
         Come to my office in Braavos Monday through Friday dawn til dusk.
         Alternatively, please send a raven!
-      </p>
+      </h2>
     </Layout>
   );
 }

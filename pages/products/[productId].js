@@ -1,4 +1,5 @@
 import Layout from '../../components/Layout';
+import { myGlobalStyles } from '../../styles/globalStyles';
 import { getCookie, setCookie } from '../../util/cookie.js';
 
 const product = (props) => {
