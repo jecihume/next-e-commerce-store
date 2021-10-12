@@ -29,6 +29,9 @@ export default function Header() {
         <Link href="/contact" className="navLink">
           <a>Contact</a>
         </Link>
+        <Link href="/cart" className="navLink">
+          <a>Shopping Cart</a>
+        </Link>
       </nav>
     </header>
   );

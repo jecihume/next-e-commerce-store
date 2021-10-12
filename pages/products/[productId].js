@@ -1,10 +1,5 @@
-import { captureRejectionSymbol } from 'events';
-import Cookies from 'js-cookies';
-import head from 'next/head';
-import { useRouter } from 'next/router';
-import { userInfo } from 'os';
-import { useState } from 'react';
 import Layout from '../../components/Layout';
+import { getCookie, setCookie } from '../../util/cookie.js';
 
 const product = (props) => {
   // or like this: export default function product(props) {
@@ -12,12 +7,27 @@ const product = (props) => {
   // const router = useRouter();
   // const { product } = router.query;
 
-  if (typeof window !== 'undefined') {
-    console.log(window.localStorage);
-  }
+  // if (typeof window !== 'undefined') {
+  //   console.log(window.localStorage);
+  // }
 
   const clickHandler = () => {
     console.log(props.dragonEgg.id);
+
+    //case 1: empty cart or cookie undefined -> create cookie
+
+    // Cookies.set('cart', JSON.stringify([props.dragonEgg.id]));
+    const oldCookie = getCookie('cart');
+    // add more stuff to the virtual bag:
+    if (oldCookie === undefined) {
+      setCookie('cart', [{ id: props.dragonEgg.id, qty: 1 }]);
+    } else {
+      const newCookie = [...oldCookie, { id: props.dragonEgg.id, qty: 1 }];
+      setCookie('cart', newCookie);
+    }
+    // filter to add quantity by one!
+
+    // Cookies.remove('cart');
     // what are the next steps?
     // I want the id of my object to show in the array of cart in the cookie
     // how do I get there?
@@ -25,9 +35,7 @@ const product = (props) => {
     // now I need to get the id into the object
   };
 
-  {
-    /* then tell the  button to execute the function click handler whenever the button is clicked */
-  }
+  /* then tell the  button to execute the function click handler whenever the button is clicked */
 
   return (
     <Layout>

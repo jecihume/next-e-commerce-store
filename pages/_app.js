@@ -1,7 +1,5 @@
 import { Global } from '@emotion/react';
 import Head from 'next/head';
-import Footer from '../components/Footer.js';
-import { Header } from '../components/Header.js';
 import { myGlobalStyles } from '../styles/globalStyles.js';
 
 // global styles is applied to everything underneath

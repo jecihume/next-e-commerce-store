@@ -1,10 +1,10 @@
 //this is my home!
-import { get } from 'http';
+
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import Layout from '../../components/Layout';
-import { getLocalStorage, setLocalStorage } from '../../util/localstorage';
+import { getLocalStorage, setLocalStorage } from '../../util/localStorage';
 
 export default function Product(props) {
   const myDarkMode = getLocalStorage('darkMode') || false;
@@ -46,9 +46,14 @@ export default function Product(props) {
 export async function getServerSideProps(context) {
   const { products } = await import('../../util/database.js');
 
+  // const mapIds = dragonEgg.map(egg)=>
+  // {
+  //   return {...dragonEgg, cart:true};
+  // }
+
   // return  an object with the property props that's coming from the backend to the frontend
   // props : name and value
-  console.log(context.req.cookies.shoppingCart);
+  console.log(context.req.cookies.cart);
   return {
     props: { productList: products },
   };

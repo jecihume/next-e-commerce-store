@@ -5,9 +5,8 @@ export function getLocalStorage(key) {
     return undefined;
   }
 }
-
 export function setLocalStorage(key, value) {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== undefined) {
     window.localStorage.setItem(key, JSON.stringify(value));
   }
 }
