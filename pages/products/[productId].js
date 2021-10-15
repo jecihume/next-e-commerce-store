@@ -2,7 +2,8 @@ import Layout from '../../components/Layout';
 import { myGlobalStyles } from '../../styles/globalStyles';
 import { getCookie, setCookie } from '../../util/cookie.js';
 
-const product = (props) => {
+// this is a React component:
+const Product = (props) => {
   // or like this: export default function product(props) {
   // this is only used, when I am grabbing information from the front end through the URl:
   // const router = useRouter();
@@ -11,7 +12,7 @@ const product = (props) => {
   // if (typeof window !== 'undefined') {
   //   console.log(window.localStorage);
   // }
-  // TODO: get the cookie
+
   const clickHandler = () => {
     // this console.log is showing the whole objects of the products
     console.log(props.dragonEgg.id);
@@ -80,7 +81,7 @@ const product = (props) => {
           Buy now for {props.dragonEgg.price.amount}{' '}
           {props.dragonEgg.price.currency}
         </button>
-        <p>{product.chosen ? 'added to shopping cart' : ''}</p>
+        <p>{Product.chosen ? 'added to shopping cart' : ''}</p>
       </div>
     </Layout>
   );
@@ -100,7 +101,6 @@ export async function getServerSideProps(context) {
 
   // return  an object with the property props that's coming from the backend to the frontend
   // props : name and value
-  console.log(products);
   return {
     props: { dragonEgg },
   };
@@ -117,4 +117,4 @@ export async function getServerSideProps(context) {
 //   return <div>CartItems: {JSON.stringify(howMany)}</div>;
 //   }
 
-export default product;
+export default Product;
