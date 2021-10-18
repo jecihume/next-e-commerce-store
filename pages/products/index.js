@@ -26,7 +26,7 @@ export default function Product(props) {
       </Head>
 
       <h2 className="h2">Product List</h2>
-      <ul>
+      <ul class="li">
         {props.productList.map((product) => {
           return (
             <li key={`product-li-${product.id}`}>

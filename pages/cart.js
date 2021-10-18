@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import Layout from '../components/Layout';
 
 // cartCookie is showing me the array of objects that's in the cookie!
@@ -29,18 +30,40 @@ export default function Cart(props) {
   //     </div>
   // );
 
+  // if I want to update, change etc something in the shoppingCart, I can use setShoppingCart: variable for this site, that is always updating this site
+  const [shoppingCart, setShoppingCart] = useState(props.cartArray);
+
   return (
     <Layout>
       <Head>
         <title className="title">Shopping Cart</title>
       </Head>
       <h2 className="h2">These are the Eggs of your Choosing:</h2>
-      <p>here go the items</p>
+      <div>
+        <ul>
+          {shoppingCart.map((egg) => {
+            return (
+              <li className="box" key={`egg-li-${egg.id}`}>
+                <img className="img" src={egg.img} alt="Dragon Egg" />
+                <div>
+                  <p>
+                    {egg.qty} {egg.area}
+                  </p>
+                  <p>
+                    {egg.price.amount} {egg.price.currency} per Egg
+                  </p>
+                  <p>Wow, lucky You! Dragons from here are beautiful!</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </Layout>
   );
 }
 
-//TODOs:
+// TODOs:
 // Get the cookie serverside
 // Get the products array server side from database
 // Create the superProducts array serverside with products + qty based on cookie
@@ -96,6 +119,6 @@ export async function getServerSideProps(context) {
   */
 
   return {
-    props: { cartArray, products }, // will be passed to the page component as props
+    props: { cartArray }, // will be passed to the page component as props
   };
 }

@@ -39,6 +39,7 @@ export const myGlobalStyles = css`
     width: 25em;
     max-width: 80vw;
     cursor: pointer;
+    align-self: center;
     &:active {
       transform: scale(1.05);
     }
@@ -51,11 +52,6 @@ export const myGlobalStyles = css`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
-  /* .h4 {
-    color: greenyellow;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  } */
   .wrapper {
     min-height: 100vh;
     display: flex;
@@ -70,7 +66,6 @@ export const myGlobalStyles = css`
     padding: 2rem;
     height: 10px;
   }
-
   .title {
     display: flex;
     justify-content: space-between;
@@ -80,12 +75,22 @@ export const myGlobalStyles = css`
     height: 10px;
   }
   .img {
-    width: 100vh;
-    height: 100wh;
+    width: 150vh;
+    height: 150wh;
     border-radius: 50%50%;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 8px;
     width: 180px;
+    align-self: center;
+  }
+  .box {
+    display: flex;
+    flex-direction: row;
+  }
+  .li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 `;
