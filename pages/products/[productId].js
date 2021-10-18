@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout';
-import { myGlobalStyles } from '../../styles/globalStyles';
 import { getCookie, setCookie } from '../../util/cookie.js';
 
 // this is a React component:
@@ -17,7 +16,7 @@ const Product = (props) => {
     // this console.log is showing the whole objects of the products
     console.log(props.dragonEgg.id);
 
-    //case 1: empty cart or cookie undefined -> create cookie
+    // case 1: empty cart or cookie undefined? then create cookie!
     // Cookies.set('cart', JSON.stringify([props.dragonEgg.id]));
     const oldCookie = getCookie('cart');
     // add more stuff to the virtual bag:

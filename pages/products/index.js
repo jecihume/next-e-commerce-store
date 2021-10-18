@@ -1,10 +1,9 @@
-//this is my home!
+// THIS IS MY HOME!
 
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import Layout from '../../components/Layout';
-import { myGlobalStyles } from '../../styles/globalStyles';
 import { getLocalStorage, setLocalStorage } from '../../util/localStorage';
 
 export default function Product(props) {

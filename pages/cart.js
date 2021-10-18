@@ -33,6 +33,8 @@ export default function Cart(props) {
   // if I want to update, change etc something in the shoppingCart, I can use setShoppingCart: variable for this site, that is always updating this site
   const [shoppingCart, setShoppingCart] = useState(props.cartArray);
 
+  // FUTURE TASK: maybe use: function sum (a, b) {return a + b;} to sum up the prices in the cart?
+
   return (
     <Layout>
       <Head>

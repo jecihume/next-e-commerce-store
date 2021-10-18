@@ -17,7 +17,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-function sum(a, b) {
-  return a + b;
-}
