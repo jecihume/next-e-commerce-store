@@ -1,27 +1,21 @@
-// import { getServerSideProps } from 'next';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import { CLIENT_RENEG_LIMIT } from 'tls';
 import Layout from '../components/Layout';
-import { reactStrictMode } from '../next.config';
-import { myGlobalStyles } from '../styles/globalStyles';
-import { getCookie, setCookie } from '../util/cookie';
 
 // cartCookie is showing me the array of objects that's in the cookie!
 export default function Cart(props) {
-  const cartCookie = getCookie('cart');
+  // const cartCookie = getCookie('cart');
 
-  console.log(props.cartArray);
+  // console.log(props.cartArray);
   // console.log(cartCookie);
 
-  // map over cartCookie {id, qty} output and create a new array showing the quantity and the chosen eggs:
+  // // map over cartCookie {id, qty} output and create a new array showing the quantity and the chosen eggs:
 
-  // This map function returns the quantities as numbers. But only the first time, afterwards, I get an error message!
+  // // This map function returns the quantities as numbers. But only the first time, afterwards, I get an error message!
 
-  const eggsFromCookies = cartCookie.map(function (cartCookie) {
-    return cartCookie['qty'];
-  });
-  console.log(`THESE ARE JUST QUANTITIES AS NUMBERS:${eggsFromCookies}`);
+  // const eggsFromCookies = cartCookie.map(function (cartCookie) {
+  //   return cartCookie['qty'];
+  // });
+  // console.log(`THESE ARE JUST QUANTITIES AS NUMBERS:${eggsFromCookies}`);
 
   // const eggsFromDatabase = () => (
   //   <div>
@@ -46,34 +40,60 @@ export default function Cart(props) {
   );
 }
 
-// first: render the cookie to the cart
-// how to get the cookie? getServerSideProps???
-// FROM COOKIES and PRODUCTS -> from these two arrays => superProducts (which // only contain products in the cart including qty!)
-// superProducts are a mixture between cookies and products
-// superProducts: frontend with props; render ONLY superProducts!!!!
+//TODOs:
+// Get the cookie serverside
+// Get the products array server side from database
+// Create the superProducts array serverside with products + qty based on cookie
+// (superProducts are a mixture between cookies and products)
+// Render the array of superProducts clientside with props = Pass this new array to the frontend
 
-//list of products from DB to serverside
-//create a new array with products + qty based on cookie
-// map function with products (like index)???
-// STEP "2": getting products
 export async function getServerSideProps(context) {
   const { products } = await import('../util/database');
 
-  const getProducts = await products();
+  const getProducts = products;
 
   const rawCookie = context.req.cookies.cart;
-  console.log(rawCookie);
+
   const renderedCookie = rawCookie ? JSON.parse(rawCookie) : [];
 
-  console.log(renderedCookie);
+  console.log('Rendered Cookie', renderedCookie);
+  // will be looking like this: [ { id: '1', qty: 1 }, { id: '3', qty: 2 }, { id: '6', qty: 2 } ]
 
+  console.log('products', products);
+  /* will be looking like this:
+  [
+    {
+      id: '1',
+      area: 'Braavosi-orange',
+      color: 'red',
+      price: { amount: '900', currency: 'Gold Dragons' },
+      img: '/images/orange.jpeg'
+    }
+  ]
+  */
+
+  // comparing the id of the cookie array (p) and the database (prod) - creating the superProduct!
   const cartArray = renderedCookie.map((p) => {
     const cartObject = getProducts.find((prod) => prod.id === p.id);
-
+    // spread the cartObject plus the quantity of every object in the cart
     return {
-      id: cartObject.id,
+      ...cartObject,
+      qty: p.qty,
     };
   });
+
+  console.log('cart array', cartArray);
+  /* will be looking like this:
+  [
+    {
+      id: '1',
+      area: 'Braavosi-orange',
+      price: { amount: '900', currency: 'Gold Dragons' },
+      img: '/images/orange.jpeg',
+      qty: 2
+    }
+  ]
+  */
 
   return {
     props: { cartArray, products }, // will be passed to the page component as props

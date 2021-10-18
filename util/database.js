@@ -1,7 +1,5 @@
 import fs from 'node:fs';
 
-console.log('fileSystem', fs);
-
 // this file is node.js
 
 export const products = [
