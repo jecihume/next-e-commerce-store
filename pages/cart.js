@@ -65,7 +65,7 @@ export default function Cart(props) {
   );
 }
 
-// TODOs:
+// TODOs (all done):
 // Get the cookie serverside
 // Get the products array server side from database
 // Create the superProducts array serverside with products + qty based on cookie
